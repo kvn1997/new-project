@@ -1,6 +1,6 @@
 var Kevin = {
     horas: 20,
-    profesion: "ayud_pizzero",
+    profesion: "pizzero",
 }
 var Johnny = {
     horas: 40,
@@ -15,7 +15,7 @@ var Anna = {
     profesion: "barra",
 }
 cocina = [];
-ayud_pizzeria = [];
+pizzeria = [];
 barra = [];
 sala = [];
 
@@ -29,9 +29,18 @@ var horas = [empleados[0].horas, empleados[1].horas,
 var profesion = [empleados[0].profesion, empleados[1].profesion,
     empleados[2].profesion, empleados[3].profesion
 ];
-console.log(profesion);
 var semana = [40];
-if (horas[1] < semana) {
-    semana.push(empleados[1]);
+if (horas[0] < semana) {
+    semana.push(empleados[0]);
 }
-console.log(semana);
+var lunes = [];
+var martes = [];
+var miercoles = [];
+var jueves = [];
+var viernes = [];
+var sabado = [];
+var domingo = [];
+$(document).ready(function() {
+    $("#dias").css("display", "flex");
+});
+var input1 = $("#input1");
