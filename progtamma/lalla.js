@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     var Kevin = {
         nombre: "Kevin",
         horas: 20,
@@ -55,21 +56,32 @@ $(document).ready(function() {
     sala = [Kevin, Johnny, Anna, Fran, Rosario, Olga, Jimmy, Juan, Andrea, Lalla];
 
     var empleados = [Kevin, Johnny, Fran, Anna, Olga, Jimmy];
-    var horas = [empleados[0].horas, empleados[1].horas,
-        empleados[2].horas, empleados[3].horas
-    ];
 
-    $("#btn-1").click(function() {
-        console.log($("#1").val());
-        var valor = $("#1").val();
-        var random = Math.floor((Math.random() * 5) + 1);
-        if (valor < empleados[random].horas) {
-            console.log(random);
-            console.log(empleados[random].nombre);
-            console.log(empleados[random].horas);
+    // var horas = [empleados[0].horas, empleados[1].horas,
+    //     empleados[2].horas, empleados[3].horas
+    // ];
+
+
+    function resta_horas_sala(empleado) {
+        var cant_horas_man = $("#horas-mañana-sala").val();
+        var cant_horas_tar = $("#horas-tarde-sala").val();
+        empleados[empleado].horas = empleados[empleado].horas - cant_horas_man;
+        empleados[empleado].horas = empleados[empleado].horas - cant_horas_tar;
+        console.log(empleados[empleado].nombre + " te quedan: " + empleados[empleado].horas + " horas disponibles");
+    }
+
+    $("#btn-1").click(function(empleadod) {
+        var cant_personal = $("#numero-personas-sala").val();
+        for (var i = 0; i < cant_personal; i++) {
+            var random = Math.floor((Math.random() * 5) + 1);
+            console.log("Las horas que tiene " + empleados[random].nombre + " son: " + empleados[random].horas);
+
+            resta_horas_sala(random);
         }
-
     });
+
+    // var random = Math.floor((Math.random() * 5) + 1);
+    // function resta_horas_sala(random);
 
 
 
@@ -93,7 +105,8 @@ $(document).ready(function() {
     var hora_Sabado = 4;
     var hora_Domingo = 4;
 
-    $("#Lunes").css("display", "flex");
+    $("#sala").css("display", "flex");
+    $("#formulario-1").css("margin-top", 17);
     $("#Martes").css("display", "flex");
     $("#Miercoles").css("display", "flex");
     $("#Jueves").css("display", "flex");
