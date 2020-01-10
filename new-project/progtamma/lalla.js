@@ -72,20 +72,50 @@ $(document).ready(function() {
     }
 
     $("#btn-1").click(function(empleado) {
+        console.log("CLICK");
         var cant_personal_mañana = $("#numero-personas-sala-mañana").val();
+        var cant_personal_noche = $("#numero-personas-sala-noche").val();
+
+        var random_al = -1;
         for (var i = 0; i < cant_personal_mañana; i++) {
-            var random = Math.floor((Math.random() * 5) + 1);
-            console.log("Las horas que tiene " + empleados[random].nombre + " son: " + empleados[random].horas);
-            var cant_personal_noche = $("#numero-personas-sala-noche").val();
-            resta_horas_sala(random);
-        }
-        for (var i = 0; i < cant_personal_noche; i++) {
-            var random = Math.floor((Math.random() * 5) + 1);
-            console.log("Las horas que tiene " + empleados[random].nombre + " son: " + empleados[random].horas);
+            var c = 0;
 
+            var random = Math.floor((Math.random() * 5) + 1);
+            console.log("Random: " + random);
+            console.log("Random AL: " + random_al);
+
+            if (random == random_al) {
+                c = c + 1;
+                var random = Math.floor((Math.random() * 5) + 1);
+                console.log("Random del IF: " + random);
+                console.log("Esta es C: " + c);
+            }
+
+
+            //console.log("Random si ent: " + random_al);
+            //console.log("Random AL 1: " + random_al);
+
+
+            console.log("TARDE: Las horas que tiene " + empleados[random].nombre + " son: " + empleados[random].horas);
             resta_horas_sala(random);
+            var random_al = random;
+
+
+            //console.log("Random AL: " + random_al);
 
         }
+
+
+
+
+
+
+        // for (var i = 0; i < cant_personal_noche; i++) {
+        //     var random = Math.floor((Math.random() * 5) + 1);
+        //     console.log("Las horas que tiene " + empleados[random].nombre + " son: " + empleados[random].horas);
+        //     resta_horas_sala(random);
+
+        // }
     });
 
     // var random = Math.floor((Math.random() * 5) + 1);
