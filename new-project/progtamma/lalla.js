@@ -3,12 +3,12 @@ $(document).ready(function() {
     var Kevin = {
         nombre: "Kevin",
         horas: 20,
-        profesion: "sala",
+        profesion: "pizzeria",
     }
     var Johnny = {
         nombre: "Johnny",
         horas: 40,
-        profesion: "sala",
+        profesion: "cocina",
     }
     var Fran = {
         nombre: "Fran",
@@ -18,22 +18,22 @@ $(document).ready(function() {
     var Anna = {
         nombre: "Anna",
         horas: 40,
-        profesion: "sala",
+        profesion: "barra",
     }
     var Rosario = {
         nombre: "Rosario",
         horas: 20,
-        profesion: "sala",
+        profesion: "cocina",
     }
     var Andrea = {
         nombre: "Andrea",
         horas: 40,
-        profesion: "sala",
+        profesion: "pizzeria",
     }
     var Juan = {
         nombre: "Juan",
         horas: 16,
-        profesion: "sala",
+        profesion: "barra",
     }
     var Lalla = {
         nombre: "Lalla",
@@ -43,19 +43,19 @@ $(document).ready(function() {
     var Jimmy = {
         nombre: "Jimmy",
         horas: 16,
-        profesion: "sala",
+        profesion: "cocina",
     }
     var Olga = {
         nombre: "Olga",
         horas: 40,
         profesion: "sala",
     }
-    cocina = [];
-    pizzeria = [];
-    barra = [];
-    sala = [Kevin, Johnny, Anna, Fran, Rosario, Olga, Jimmy, Juan, Andrea, Lalla];
+    cocina = [Jimmy, Rosario, Johnny];
+    pizzeria = [Kevin, Andrea];
+    barra = [Anna, Juan];
+    var sala = [Olga, Lalla, Fran];
 
-    var empleados = [Kevin, Johnny, Fran, Anna, Olga, Jimmy];
+    var empleados = [Kevin, Johnny, Fran, Anna, Olga, Jimmy, Rosario, Andrea, Lalla, Juan];
 
     // var horas = [empleados[0].horas, empleados[1].horas,
     //     empleados[2].horas, empleados[3].horas
@@ -65,15 +65,20 @@ $(document).ready(function() {
     function resta_horas_sala(empleado) {
         var cant_horas_man = $("#horas-mañana-sala").val();
         var cant_horas_tar = $("#horas-tarde-sala").val();
-        empleados[empleado].horas = empleados[empleado].horas - cant_horas_man;
-        empleados[empleado].horas = empleados[empleado].horas - cant_horas_tar;
-        console.log(empleados[empleado].nombre + " te quedan: " + empleados[empleado].horas + " horas disponibles");
+        sala[empleado].horas = sala[empleado].horas - cant_horas_man;
+        sala[empleado].horas = sala[empleado].horas - cant_horas_tar;
+
+        console.log(sala[empleado].nombre + " te lalla quedan: " + sala[empleado].horas + " horas disponibles");
 
     }
+    var profesion = [empleados[0].profesion, empleados[1].profesion,
+        empleados[2].profesion, empleados[3].profesion
+    ];
 
     $("#btn-1").click(function(empleado) {
         console.log("CLICK");
         var cant_personal_mañana = $("#numero-personas-sala-mañana").val();
+<<<<<<< HEAD
         var cant_personal_noche = $("#numero-personas-sala-noche").val();
 
         var random_al = -1;
@@ -95,6 +100,18 @@ $(document).ready(function() {
             //console.log("Random si ent: " + random_al);
             //console.log("Random AL 1: " + random_al);
 
+=======
+
+        for (var i = 0; i < cant_personal_mañana; i++) {
+            var random = Math.floor((Math.random() * 3) + 0);
+            console.log("Las horas que tiene " + sala[random].nombre + " son: " + sala[random].horas);
+            var cant_personal_noche = $("#numero-personas-sala-noche").val();
+            resta_horas_sala(random);
+        }
+        for (var i = 0; i < cant_personal_noche; i++) {
+            var random = Math.floor((Math.random() * 3) + 0);
+            console.log("Las horas que tiene " + sala[random].nombre + " son: " + sala[random].horas);
+>>>>>>> 40ed90189a4ab8eda7b4463a4af6d9836b9bf659
 
             console.log("TARDE: Las horas que tiene " + empleados[random].nombre + " son: " + empleados[random].horas);
             resta_horas_sala(random);
@@ -103,6 +120,7 @@ $(document).ready(function() {
 
             //console.log("Random AL: " + random_al);
 
+<<<<<<< HEAD
         }
 
 
@@ -120,14 +138,15 @@ $(document).ready(function() {
 
     // var random = Math.floor((Math.random() * 5) + 1);
     // function resta_horas_sala(random);
+=======
+>>>>>>> 40ed90189a4ab8eda7b4463a4af6d9836b9bf659
+
+        }
 
 
+    });
 
 
-
-    // var profesion = [empleados[0].profesion, empleados[1].profesion,
-    //     empleados[2].profesion, empleados[3].profesion
-    // ];
     var lunes = [];
     var martes = [];
     var miercoles = [];
